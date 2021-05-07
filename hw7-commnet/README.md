@@ -9,6 +9,9 @@
 
 Ported to PyTorch from Torch. This network enables neural network based agents to communicate for cooperation.
 
+The code is mainly based on [this repo](https://github.com/0b01/CommNet). 
+I solved some bugs, mainly including pytorch version adaptation, python 3 adaptation, and hyperparameter finetuning.
+
 
 # Installing
 
