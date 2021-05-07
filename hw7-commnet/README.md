@@ -15,18 +15,18 @@ Ported to PyTorch from Torch. This network enables neural network based agents t
 To train the network
 
 ```
-python train.py
+python levers.py
 ```
 
 # Levers Task
 
 Each agent must pull a different lever after 2 communication passes. Since the agents have to cooperate, levers game is a sanity check for the implementation.
 
-![accuracy](https://raw.githubusercontent.com/rickyhan/CommNet/master/accuracy.png)
+![accuracy](https://github.com/mail-ecnu/MAS/blob/2f878149aea22b0c9346eb70e031f45e756c0c77/hw7-commnet/acc.png)
 
 # Weights
 
-The weights file included in this repo is trained on the first 5 agents out of a pool of 10 models.
+The weights file included in this repo is trained on the 10 agents out of a pool of 10 models.
 
 # Options
 
@@ -34,7 +34,7 @@ The weights file included in this repo is trained on the first 5 agents out of a
 opts = {
     # model-related options
     'model': 'mlp',             # mlp | lstm | rnn, (apparently `mlp == rnn` ?)
-    'hidsz': HIDSZ,             # the size of the internal state vector
+    'hidsz': 128,             # the size of the internal state vector
     'nonlin': 'relu',           # relu | tanh | none
     'init_std': 0.2,            # STD of initial weights
     'init_hid': 0.1,            # weight of initial hidden
@@ -55,18 +55,18 @@ opts = {
     'fully_connected': True,    # basically, all agent can talk to all agent
 
     # game releated
-    'nmodels': N_MODELS,        # the number of models in LookupTable
-    'nagents': N_AGENTS,        # the number of agents to look up
-    'nactions': N_LEVERS,       # the number of agent actions
+    'nmodels': 10,        # the number of models in LookupTable
+    'nagents': 10,        # the number of agents to look up
+    'nactions': 10,       # the number of agent actions
 
     # training
-    'optim': 'rmsprop',             # optimization method: rmsprop | sgd | adam [rmsprop]
-    'lrate': 1e-3,              # learning rate [0.001]
+    'optim': 'adam',             # optimization method: rmsprop | sgd | adam [rmsprop]
+    'lrate': 3e-4,              # learning rate [0.001]
     # 'max_grad_norm':            # gradient clip value [0]
     # 'clip_grad':                # gradient clip value [0]
     # 'alpha':                    # coefficient of baseline term in the cost function [0.03]
     # 'epochs':                   # the number of training epochs [100]
-    'batch_size': BATCH_SIZE,   # size of mini-batch (the number of parallel games) in each thread [16]
+    'batch_size': 32,   # size of mini-batch (the number of parallel games) in each thread [16]
     # 'nworker':                  # the number of threads used for training [18]
     'reward_mult': 1,            # coeff to multiply reward for bprop [1]
 
@@ -82,13 +82,3 @@ opts = {
 
 actor = CommNet(opts)
 ```
-
-# TODO
-
-- [x] Implement LSTM module
-
-- [x] `'comm_mode': 'avg'` is broken
-
-- [ ] Implement discrete communication through action
-
-- [x] Hyperparameter tuning
