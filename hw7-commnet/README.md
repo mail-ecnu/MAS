@@ -19,6 +19,7 @@ I solved some bugs, mainly including pytorch version adaptation, python 3 adapta
 git clone git@github.com:mail-ecnu/MAS.git
 cd ./MAS/hw7-commnet
 conda create --name <your-env-name> --file requirements.txt
+conda activate <your-env-name>
 ```
 
 # Training
