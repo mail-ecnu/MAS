@@ -7,7 +7,7 @@ from torch.autograd import Variable
 from torch import nn
 import torch
 
-USE_CUDA = True
+USE_CUDA = False
 
 class Levers(object):
     def __init__(self):
