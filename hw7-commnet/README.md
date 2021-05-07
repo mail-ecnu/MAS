@@ -10,6 +10,12 @@
 Ported to PyTorch from Torch. This network enables neural network based agents to communicate for cooperation.
 
 
+# Installing
+
+```
+conda create --name <your-env-name> --file requirements.txt
+```
+
 # Training
 
 To train the network
