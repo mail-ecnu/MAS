@@ -13,6 +13,8 @@ Ported to PyTorch from Torch. This network enables neural network based agents t
 # Installing
 
 ```
+git clone git@github.com:mail-ecnu/MAS.git
+cd ./MAS/hw7-commnet
 conda create --name <your-env-name> --file requirements.txt
 ```
 
